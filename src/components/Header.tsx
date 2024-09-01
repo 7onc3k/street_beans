@@ -24,6 +24,7 @@ export default function Header() {
             <li><Link href="/menu" className="block py-1 hover:text-sb-orange">Nabídka</Link></li>
             <li><Link href="/events" className="block py-1 hover:text-sb-orange">Akce</Link></li>
             <li><Link href="/about" className="block py-1 hover:text-sb-orange">O nás</Link></li>
+            <li><Link href="/account" className="block py-1 hover:text-sb-orange">Zákaznický účet</Link></li>
           </ul>
         </nav>
       )}
