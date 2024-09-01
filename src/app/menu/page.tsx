@@ -3,28 +3,29 @@
 import { useState } from "react";
 import { Coffee, Droplet, ShoppingBag } from "react-feather";
 import React from "react";
-import Image from "next/image";
 
 const products = [
   {
     category: "Káva",
     items: [
-      { name: "Espresso Illy", description: "Klasika z kvalitních zrn", price: 45 },
-      { name: "Cappuccino", description: "Krémová mléčná pěna", price: 55 },
+      { name: "Espresso Illy", description: "Kvalitní italská káva připravená na profesionálním kávovaru", price: 45, icon: <Coffee /> },
+      { name: "Cappuccino Illy", description: "Espresso s mléčnou pěnou a kakaovým posypem", price: 55, icon: <Coffee /> },
     ],
   },
   {
     category: "Graffiti potřeby",
     items: [
-      { name: "Montana BLACK 400ml", description: "Vysoce krycí sprej", price: 159 },
-      { name: "Molotow ONE4ALL Marker", description: "Akrylový popisovač", price: 119 },
+      { name: "Montana BLACK 400ml", description: "Vysoce krycí sprej pro graffiti, nitro-kombi složení, matný povrch", price: 159, icon: <Droplet /> },
+      { name: "Molotow ONE4ALL Akrylový Marker 4mm", description: "Akrylový popisovač s výměnným hrotem, vhodný pro většinu povrchů", price: 119, icon: <Droplet /> },
     ],
   },
   {
     category: "Občerstvení",
     items: [
-      { name: "Bageta šunka a sýr", description: "Čerstvá a chutná", price: 59 },
-      { name: "Veganský wrap", description: "Plný zeleniny", price: 69 },
+      { name: "Snickers", description: "Oblíbená čokoládová tyčinka s arašídy a karamelem", price: 25, icon: <ShoppingBag /> },
+      { name: "Bageta šunka a sýr", description: "Balená bageta s šunkou, sýrem a zeleninou", price: 59, icon: <ShoppingBag /> },
+      { name: "Red Bull Energy Drink 250ml", description: "Energetický nápoj pro povzbuzení a dobití energie", price: 45, icon: <ShoppingBag /> },
+      { name: "Lay's Chipsy", description: "Křupavé bramborové chipsy v různých příchutích", price: 35, icon: <ShoppingBag /> },
     ],
   },
 ];
@@ -69,14 +70,8 @@ export default function Menu() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {category.items.map((item, itemIndex) => (
                   <div key={itemIndex} className="bg-white shadow rounded-lg overflow-hidden flex">
-                    <div className="w-1/3 bg-gray-200 relative aspect-square">
-                      <Image
-                        src={`https://picsum.photos/400/400?random=${categoryIndex}${itemIndex}`}
-                        alt={item.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover"
-                      />
+                    <div className="w-1/3 bg-gray-200 flex items-center justify-center">
+                      {item.icon}
                     </div>
                     <div className="w-2/3 p-4">
                       <h3 className="font-bold text-lg mb-2 text-sb-brown">{item.name}</h3>
